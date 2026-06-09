@@ -33,9 +33,8 @@ def create_app() -> Flask:
         storage_uri="memory://",  # No Redis required
     )
 
-    # Stricter limit on AI generation endpoint
-    limiter.limit("10 per hour")(generation_bp)
-
+    # The strict limit on AI generation is moved to the specific route in generation_routes.py
+    # to avoid rate-limiting the polling endpoint.
     # ── Blueprints ────────────────────────────────────────────────────────────
     app.register_blueprint(auth_bp)
     app.register_blueprint(tasks_bp)
