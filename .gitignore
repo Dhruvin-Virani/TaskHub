@@ -1,0 +1,161 @@
+# ════════════════════════════════════════════════════════════════════════════════
+#  TaskHub — Master .gitignore
+#  Covers: Python/Flask backend, Next.js frontend, OS files, editors
+# ════════════════════════════════════════════════════════════════════════════════
+
+# ── Environment Files ─────────────────────────────────────────────────────────
+# NEVER commit real .env files — they contain secrets.
+# .env.example files ARE committed (they have placeholder values only).
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+backend/.env
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+
+# ── Firebase Service Account (CRITICAL — never commit this) ───────────────────
+backend/firebase-service-account.json
+firebase-service-account.json
+*service-account*.json
+*serviceAccount*.json
+
+# ════════════════════════════════════════════════════════════════════════════════
+#  PYTHON / FLASK BACKEND
+# ════════════════════════════════════════════════════════════════════════════════
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env/
+backend/venv/
+backend/.venv/
+backend/env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+*.pyo
+*.pyd
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
+.eggs/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+nosetests.xml
+coverage.xml
+
+# MyPy / type checkers
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Flask instance folder (if created)
+instance/
+
+# ════════════════════════════════════════════════════════════════════════════════
+#  NEXT.JS / NODE FRONTEND
+# ════════════════════════════════════════════════════════════════════════════════
+
+# Dependencies
+node_modules/
+frontend/node_modules/
+.pnp
+.pnp.js
+
+# Next.js build output
+.next/
+out/
+frontend/.next/
+frontend/out/
+
+# Production build
+build/
+
+# Typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Vercel deployment
+.vercel
+
+# ════════════════════════════════════════════════════════════════════════════════
+#  OPERATING SYSTEM
+# ════════════════════════════════════════════════════════════════════════════════
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+# ════════════════════════════════════════════════════════════════════════════════
+#  CODE EDITORS & IDEs
+# ════════════════════════════════════════════════════════════════════════════════
+
+# VS Code
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# JetBrains (PyCharm, WebStorm, etc.)
+.idea/
+*.iml
+*.iws
+
+# Vim / Emacs
+*.swp
+*.swo
+*~
+
+# ════════════════════════════════════════════════════════════════════════════════
+#  MISCELLANEOUS
+# ════════════════════════════════════════════════════════════════════════════════
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Lock files (keep package-lock.json, but ignore others if preferred)
+# Uncomment below to ignore yarn/pnpm locks:
+# yarn.lock
+# pnpm-lock.yaml

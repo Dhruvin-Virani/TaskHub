@@ -1,0 +1,38 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+
+# Next.js build output
+/.next/
+/out/
+/build
+
+# Environment files — never commit real secrets
+.env
+.env.local
+.env.*.local
+
+# Allow the example file (placeholder values only)
+!.env.example
+
+# Vercel
+.vercel
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Testing
+/coverage
+
+# Misc
+.DS_Store
+*.pem
+Thumbs.db
