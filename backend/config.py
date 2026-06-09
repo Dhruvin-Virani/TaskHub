@@ -19,11 +19,11 @@ class Config:
     FIREBASE_SERVICE_ACCOUNT_PATH: str = os.environ.get(
         "FIREBASE_SERVICE_ACCOUNT_PATH", "./firebase-service-account.json"
     )
+    FIREBASE_CREDENTIALS_JSON: str = os.environ.get("FIREBASE_CREDENTIALS_JSON", "")
 
     # AI / External APIs
     GEMINI_API_KEY: str = os.environ.get("GEMINI_API_KEY", "")
     PEXELS_API_KEY: str = os.environ.get("PEXELS_API_KEY", "")
-    HF_TOKEN: str = os.environ.get("HF_TOKEN", "")  # Optional: Hugging Face token for BiRefNet
 
     # SMTP Email
     SMTP_HOST: str = os.environ.get("SMTP_HOST", "smtp.gmail.com")
