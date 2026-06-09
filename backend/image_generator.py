@@ -93,17 +93,30 @@ def remove_background(image_bytes: bytes) -> bytes:
 
 
 def _fetch_pexels_background(query: str) -> bytes:
+    import random
     url = "https://api.pexels.com/v1/search"
     headers = {"Authorization": Config.PEXELS_API_KEY}
-    params = {"query": query, "per_page": 5, "orientation": "square"}
+    # Use a random page (1-5) so results vary on every regenerate
+    page = random.randint(1, 5)
+    params = {"query": query, "per_page": 15, "orientation": "square", "page": page}
 
     resp = requests.get(url, headers=headers, params=params, timeout=20)
     resp.raise_for_status()
     photos = resp.json().get("photos", [])
+
+    if not photos:
+        # Fallback to page 1 if current page has no results
+        params["page"] = 1
+        resp = requests.get(url, headers=headers, params=params, timeout=20)
+        resp.raise_for_status()
+        photos = resp.json().get("photos", [])
+
     if not photos:
         raise ValueError(f"No Pexels results for query: {query!r}")
 
-    photo_url = photos[0]["src"]["large"]
+    # Pick a random photo from the results for even more variety
+    photo = random.choice(photos)
+    photo_url = photo["src"]["large"]
     img_resp = requests.get(photo_url, timeout=30)
     img_resp.raise_for_status()
     return img_resp.content
